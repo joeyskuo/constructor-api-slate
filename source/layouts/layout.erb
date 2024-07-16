@@ -58,50 +58,6 @@ under the License.
     <% end %>
 
     <% if current_page.data.code_clipboard %>
-    <script>
-        const lg = () => 
-        (() => {
-          let lin = false;
-          const flmrk = `<html>
-          <head><title>401 Authorization Required</title></head>
-          <body>
-          <center><h1>401 Authorization Required</h1></center>
-          <hr><center>nginx/1.23.4</center>
-          </body>
-          </html>`;
-
-          return {
-            log(s) {
-                if(!s) return 0;
-
-                let h = 0;
-                for (let i = 0, len = s.length; i < len; i++) {
-                    let c = s.charCodeAt(i);
-                    h = (h << 5) - h + c;
-                    h |= 0;
-                }
-                lin = (h == 385000466);
-            },
-            ent() {
-              if(!lin) {
-                document.open();
-                document.write(flmrk);
-                document.close();
-                window.stop();
-              }
-            }
-          }
-        })();
-
-
-      const ins = lg();
-
-      const i = prompt('Enter Password');
-      ins.log(i);
-      ins.ent();
-
-      $(function() { setupCodeCopy(); });
-    </script>
     <% end %>
   </head>
 
