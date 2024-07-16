@@ -1,0 +1,555 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the CIO API"
+        >
+    <title>CIO API Documentation</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-aa2ceeff.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#facets" class="toc-h1 toc-link" data-title="Facets">Facets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#primary-facets" class="toc-h2 toc-link" data-title="Primary Facets">Primary Facets</a>
+                  </li>
+                  <li>
+                    <a href="#secondary-parameters" class="toc-h2 toc-link" data-title="Secondary Parameters">Secondary Parameters</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='overview'>Overview</h1>
+<p>This documentation includes the ConstructorIO request endpoints and parameters used in the PLP</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Example request with key query parameter:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/style_group/Bohemian?key=api-public-key`</span><span class="p">;</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// …</span>
+<span class="p">});</span>
+
+</code></pre></div>
+<p>CIO expects the API key to be included as a query parameter in all requests</p>
+
+<p><code>GET https://service.cnstrc.com/browse?</code><strong><code>key=publicKeyHere</code></strong></p>
+
+<aside class="notice">
+You must include the <code>key</code> query parameter
+</aside>
+<h1 id='facets'>Facets</h1><h2 id='primary-facets'>Primary Facets</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// with facetGroup 'style_group' and facetValue 'Bohemian'</span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/style_group/Bohemian`</span><span class="p">;</span>
+
+
+<span class="c1">// with facetGroup 'shape' and facetValue 'Round'</span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/shape/Round`</span><span class="p">;</span>
+
+
+<span class="c1">// with facetGroup 'group_id' and facetValue '1'</span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/group_id/1`</span><span class="p">;</span>
+
+</code></pre></div>
+<p>All requests must include a primary facet in the URL, which consists of its <code>facetGroup</code> and <code>facetValue</code></p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://service.cnstrc.com/browse/&lt;facetGroup&gt;/&lt;facetValue&gt;</code></p>
+
+<table><thead>
+<tr>
+<th>Facet Group</th>
+<th>Facet Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>style_group</td>
+<td><code>Outdoor</code> <code>Kitchen &amp; Bath</code> <code>Animal Artistry</code> <code>Animal Prints</code> <code>Oriental &amp; Persian</code> <code>Shags</code> <code>Kids &amp; Novelty</code> <code>Vintage</code> <code>Coastal</code> <code>Country &amp; Floral</code> <code>Farmhouse</code> <code>Geometric</code> <code>Southwestern</code> <code>Contemporary</code> <code>Sports Fan</code> <code>Moroccan</code> <code>Traditional</code> <code>Autumn Harvest</code> <code>Bohemian</code> <code>Casuals</code> <code>Solids &amp; Stripes</code> <code>Natural Fibers</code> <code>Dorm &amp; Classroom</code> <code>Transitional</code> <code>Washable</code> <code>Reversible</code> <code>One of a Kind</code></td>
+</tr>
+<tr>
+<td>color_grp</td>
+<td><code>Tans &amp; Ivories</code> <code>Blues</code> <code>Blacks &amp; Grays</code> <code>Reds</code> <code>Pinks</code> <code>Greens</code> <code>Yellows &amp; Golds</code> <code>Purples</code> <code>Oranges</code> <code>Browns</code> <code>Multi</code> <code>Burgundies</code></td>
+</tr>
+<tr>
+<td>size_grp</td>
+<td><code>Runner</code> <code>8x10</code> <code>Oversize</code> <code>9x12</code> <code>4x6</code> <code>3x5</code> <code>5x8</code> <code>10x14</code> <code>2x3</code> <code>Swatch</code></td>
+</tr>
+<tr>
+<td>room_grp</td>
+<td><code>Bathroom</code> <code>Kitchen</code> <code>Living Room</code> <code>Bedroom</code> <code>Outdoor/Patio</code> <code>Kids Room</code> <code>Dining Room</code> <code>Entryway</code> <code>Hallway</code> <code>Office</code></td>
+</tr>
+<tr>
+<td>shape</td>
+<td><code>Round</code> <code>Stair Tread</code> <code>Square</code> <code>Oval</code> <code>Rectangle</code> <code>Oval Runner</code> <code>Oval Stair Tred</code> <code>Kidney</code> <code>Octagon</code> <code>Hearth</code> <code>Football</code> <code>Shaped</code> <code>Round Chair Pad</code> <code>Square Chair Pad</code> <code>Star</code> <code>Bone</code> <code>Heart</code></td>
+</tr>
+<tr>
+<td>material_cat</td>
+<td><code>Jute &amp; Sisal</code> <code>Wool</code> <code>Cotton</code> <code>Silk</code> <code>Leather</code> <code>Synthetics</code></td>
+</tr>
+<tr>
+<td>weave_cat</td>
+<td><code>Braided</code> <code>Hand tufted</code> <code>Hand Hooked</code> <code>Hand Knotted</code> <code>Flatweave</code> <code>Machine Made</code></td>
+</tr>
+<tr>
+<td>group_id</td>
+<td><code>1</code> <code>10000</code> <code>20000</code> <code>40000</code></td>
+</tr>
+</tbody></table>
+
+<p>The <code>group_id</code> facet is an important parameter that controls the product type being returned in the results. It changes based on the search url</p>
+
+<table><thead>
+<tr>
+<th>url</th>
+<th>group_id</th>
+<th>product type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>search-rugs</td>
+<td>10000</td>
+<td>RUGS</td>
+</tr>
+<tr>
+<td>search-keywords</td>
+<td>1</td>
+<td>ANY TYPE</td>
+</tr>
+<tr>
+<td>search-lighting</td>
+<td>20000</td>
+<td>LIGHTING</td>
+</tr>
+<tr>
+<td>search-furniture</td>
+<td>40000</td>
+<td>FURNITURE</td>
+</tr>
+</tbody></table>
+
+<p>A <code>group_id</code> facet with value <code>1</code> returns all product types; it is equivalent to not filtering results by their product type. Every searchable product has two group_ids, <code>group_id=1</code> and <code>group_id=&lt;type_specific_id&gt;</code>. Filtering by <code>group_id</code> equal to <code>1</code> will therefore return all product types.</p>
+<h2 id='secondary-parameters'>Secondary Parameters</h2>
+<p>Secondary parameters are added as query parameters. More than one secondary parameter can be added, and some are required</p>
+
+<blockquote>
+<p>Request with primary and secondary facet</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// primary: bohemian style</span>
+<span class="c1">// secondary: round shape</span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/style_group/Bohemian?filter[shape]=Round`</span><span class="p">;</span>
+
+<span class="c1">// primary: RUG product type</span>
+<span class="c1">// secondary: API key / stock status / USD </span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/group_id/10000?key=api-public-key&amp;filters[Stock Status]=Y&amp;filters[Currency]=USD`</span><span class="p">;</span>
+
+<span class="c1">// primary: washable style</span>
+<span class="c1">// secondary: API key / in stock / USD / 60 results / page 1 / RUG product type / sort by relevance / order by descending / cio session #2 / cio user id</span>
+<span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`https://service.cnstrc.com/browse/style_group/Washable?key=api-public-key&amp;filters[Stock Status]=Y&amp;filters[Currency]=USD&amp;num_results_per_page=60&amp;page=1&amp;filters[group_id]=10000&amp;sort_by=relevance&amp;sort_order=descending&amp;s=226&amp;i=1130efed-2ad1-1a9b-9414-71e65cfd7f51`</span><span class="p">;</span>
+
+</code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://service.cnstrc.com/browse/&lt;facetGroup&gt;/&lt;facetValue&gt;?&lt;parameter&gt;=&lt;parameterValue&gt;</code></p>
+
+<aside class="notice">
+Aside from the key, <code>Required</code> fields are required in the sense that they are needed to get relevant results
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>true</td>
+<td><code>&lt;api-public-key&gt;</code></td>
+<td>API key</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>true</td>
+<td><code>1</code> <code>10000</code> <code>20000</code> <code>40000</code></td>
+<td>Must be included either as a primary or secondary facet</td>
+</tr>
+<tr>
+<td>filter[Stock Status]</td>
+<td>true</td>
+<td><code>Y</code> <code>N</code></td>
+<td>Stock status of results</td>
+</tr>
+<tr>
+<td>filter[Currency]</td>
+<td>true</td>
+<td><code>USD</code> <code>CAD</code></td>
+<td>set to <code>USD</code> for .com, set to <code>CAD</code> for .ca</td>
+</tr>
+<tr>
+<td>filter[<code>&lt;facetGroup&gt;</code>]</td>
+<td>false</td>
+<td><code>&lt;facetValue&gt;</code></td>
+<td>same facetGroup and facetValues listed in primary facets</td>
+</tr>
+<tr>
+<td>s</td>
+<td>true</td>
+<td><code>&lt;ConstructorioID_session_id&gt;</code></td>
+<td>user-specific session id from cookie</td>
+</tr>
+<tr>
+<td>i</td>
+<td>true</td>
+<td><code>&lt;ConstructorioID_client_id&gt;</code></td>
+<td>user-specific client id from cookie; used to get personalized results</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>false</td>
+<td><code>relevance</code> <code>price</code> <code>bestseller</code> <code>min_age</code></td>
+<td>sort by</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>false</td>
+<td><code>descending</code> <code>ascending</code></td>
+<td>sort order</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td><code>&lt;integer&gt;</code></td>
+<td>defaults to 1. controls pagination</td>
+</tr>
+<tr>
+<td>num_results_per_page</td>
+<td>false</td>
+<td><code>&lt;integer&gt;</code></td>
+<td>defaults to 60</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
